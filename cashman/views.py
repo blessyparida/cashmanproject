@@ -7,6 +7,10 @@ bp = Blueprint("views", __name__)
 transaction_schema = TransactionSchema()
 transactions_schema = TransactionSchema(many=True)
 
+@bp.route("/")
+def home():
+    return jsonify({"message": "💰 Welcome to Cashman API! Use /transactions to interact."})
+
 # Add transaction
 @bp.route("/transactions", methods=["POST"])
 def add_transaction():
